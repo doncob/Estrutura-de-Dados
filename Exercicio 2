@@ -1,0 +1,57 @@
+package JavaNaVeia;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class exerciciopilhas {
+
+public static void main(String[]args) {
+
+	Stack<String> pilhalivros = new Stack<String>();
+	
+	int op;
+	String titulo=null;
+	
+	Scanner ler = new Scanner(System.in);
+
+   do {
+	System.out.println("====================================");
+	System.out.println("\n\tDigite a sua opção:");
+    System.out.println("\n\t[1] Adicionar livro na pilha");
+    System.out.println("\n\t[2] Listar todos os livros");
+    System.out.println("\n\t[3] Retirar livro da pilha");
+    System.out.println("\n\t[0] Sair");
+    System.out.println("====================================");
+    op = ler.nextInt();
+    
+    switch(op) {
+    case 1:
+    	ler.nextLine();
+    	System.out.println("\nDigite o nome do livro: ");
+		titulo = ler.nextLine();
+		pilhalivros.add(titulo);
+		break;
+    case 2:
+    	System.out.println("\nLista de livros na pilha:");
+    	System.out.println(pilhalivros);
+        break;
+    case 3:	
+        ler.nextLine();
+    	if(!pilhalivros.isEmpty()) {
+            System.out.println("\nDigite o nome do livro: ");
+            titulo = ler.nextLine();
+            if (pilhalivros.remove(titulo)) {
+                System.out.println("\nUm livro foi retirado da pilha!");
+            } else {
+                System.out.println("\nLivro não encontrado na pilha!");
+            }
+        } else {
+            System.out.println("\nA pilha está vazia!!");
+        }
+        break;
+    default:
+        break;}
+    
+    }while(op!=0);
+}
+}
